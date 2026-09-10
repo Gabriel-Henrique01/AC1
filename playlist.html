@@ -1,0 +1,38 @@
+<input [(ngModel)]="digitou" placeholder="Digite e pressione Enter">
+@if (digitou == '') {
+    <button disabled>Adicionar</button>
+} 
+@else {
+    <button (click)="adicionarMusica($event)" >Adicionar</button>
+}
+<ul>
+    @for (item of musicas; track $index) {
+        <li (click)="musica_sel = item">{{ item }}</li>
+    }
+</ul>
+
+@if (musica_sel) {
+    <p>Você escolheu: {{ musica_sel }}</p>
+}
+@else {
+    <p>Nenhuma música selecionada!</p>
+}
+
+
+<div class="play">
+
+    @if (reproduzindo == true) {
+       <p [style.color]="cor"> {{ musica_sel }} </p>
+
+    }
+    @else {
+        <p>{{ musica_sel }}</p>
+    }
+    {{ reproduzindo ? ' Reproduzindo🎶🎶🎶' : 'Pausado▶️' }}<br>
+    <button (click)="reproduzindo=!reproduzindo">⏸️</button>
+    <button (click)="reproduzindo=!reproduzindo">▶️</button> 
+</div>
+
+
+<p>Curtida: {{ curtida }}</p>
+<button (click)="incrementar()"> ❤️ </button>

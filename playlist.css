@@ -1,0 +1,10 @@
+
+.play {
+    background-color: bisque;
+    padding: 10px;
+    border: 1px solid bisque;
+    border-radius: 16px;
+    max-width: 200px;
+    align-items: center;
+    justify-content: center;
+}
